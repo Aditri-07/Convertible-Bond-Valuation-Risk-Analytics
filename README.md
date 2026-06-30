@@ -1,5 +1,13 @@
 # Convertible Bond Credit Treatment under State-Dependent Conversion Risk
 
+A research project examining when credit-risk treatment actually matters in
+convertible bond pricing: comparing a naive single-discount-rate model
+against the Tsiveriotis–Fernandes (1998) component-split model on a
+recombining binomial lattice, and quantifying where (and how much) the two
+disagree as a function of moneyness.
+
+![Pricing divergence chart](divergence_chart.png)
+
 A Python framework that prices vanilla U.S. convertible bonds on a recombining
 binomial lattice and compares two credit treatments:
 
@@ -20,6 +28,13 @@ binomial lattice and compares two credit treatments:
 - `analysis.py` — reproduces the divergence sweep and CS01 sensitivity tables.
   Run with `python analysis.py`. Outputs `divergence_sweep.csv` and
   `cs01_sensitivity.csv`.
+- `plot_divergence.py` — generates `divergence_chart.png`, showing TF vs.
+  single-rate price and the divergence curve across moneyness.
+- `test_cb_pricer.py` — sanity checks against known limiting cases (deep ITM
+  delta converges to the conversion ratio, deep OTM price converges to the
+  straight-bond floor, zero credit spread collapses both treatments, etc.).
+  Run with `python test_cb_pricer.py`.
+- `requirements.txt`, `.gitignore`, `LICENSE` — repo housekeeping.
 
 ## Base case used in the writeup
 
